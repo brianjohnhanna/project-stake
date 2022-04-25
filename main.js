@@ -1,4 +1,5 @@
 import './style.css'
+import './modernizr'
 import { gsap } from "gsap";
 import imagesloaded from 'imagesloaded';
 
