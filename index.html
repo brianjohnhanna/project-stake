@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="/img/Door_Left.png" as="image">
+    <link rel="preload" href="/img/Door_Right.png" as="image">
+    <title>Project Stake</title>
+  </head>
+  <body class="relative bg-black">
+
+    <div class="h-full w-full hidden" id="animationWrapper">
+        
+        <div id="bridge" class="h-full w-full hidden overflow-hidden bg-[url('/img/BG.png')] bg-cover relative flex items-center justify-center bg-center">
+            <div class="w-5/12 h-auto -mt-[6%] ml-1" id="hologram">
+                <img src="/img/Hologram.png" alt="Hologram" class="w-full h-full object-cover" />
+                <span class="sr-only">Welcome to the mission. Welcome to Project Stake. Join us as we explore the Cosmos; seeking alpha and sharing in the bounty. As the story evolves, so too will our legend.</span>
+            </div>
+            <img id="captainLeft" class="w-full h-full absolute left-0 -bottom-4 object-cover" src="/img/Character_Left.png" alt="Captain on left side of helm" />
+            <img id="captainRight" class="w-full h-full absolute right-0 -bottom-4 object-cover" src="/img/Character_Right.png" alt="Captain on right side of helm" />
+        </div>
+        <div id="doors" class="absolute h-full w-full inset-0 overflow-hidden pointer-events-none">
+            <img id="doorLeft" src="/img/Door_Left.png" class="w-full h-full absolute inset-y-0 left-0 object-cover" />
+            <img id="doorRight" src="/img/Door_Right.png" class="w-full h-full absolute inset-y-0 left-0 object-cover" />
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
