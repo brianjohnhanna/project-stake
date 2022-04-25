@@ -11,6 +11,7 @@
 }
 
 @layer components {
+  .no-js .helm-background,
   .no-webp .helm-background {
     background-image: url("/img/BG.png");
   }
