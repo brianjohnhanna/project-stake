@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" href="/img/Door_Left.png" as="image">
-    <link rel="preload" href="/img/Door_Right.png" as="image">
+    <link rel="preload" href="/img/Door_Left.webp" as="image">
+    <link rel="preload" href="/img/Door_Right.webp" as="image">
     <title>Project Stake</title>
   </head>
   <body class="relative bg-black">
 
     <div class="h-full w-full hidden" id="animationWrapper">
         
-        <div id="bridge" class="h-full w-full hidden overflow-hidden bg-[url('/img/BG.png')] bg-cover relative flex items-center justify-center bg-center">
+        <div id="bridge" class="h-full w-full hidden overflow-hidden helm-background bg-cover relative flex items-center justify-center bg-center">
             <div class="w-5/12 h-auto -mt-[6%] ml-1" id="hologram">
                 <img src="/img/Hologram.png" alt="Hologram" class="w-full h-full object-cover" />
                 <span class="sr-only">Welcome to the mission. Welcome to Project Stake. Join us as we explore the Cosmos; seeking alpha and sharing in the bounty. As the story evolves, so too will our legend.</span>
@@ -21,8 +21,16 @@
             <img id="captainRight" class="w-full h-full absolute right-0 -bottom-4 object-cover" src="/img/Character_Right.png" alt="Captain on right side of helm" />
         </div>
         <div id="doors" class="absolute h-full w-full inset-0 overflow-hidden pointer-events-none">
-            <img id="doorLeft" src="/img/Door_Left.png" class="w-full h-full absolute inset-y-0 left-0 object-cover" />
-            <img id="doorRight" src="/img/Door_Right.png" class="w-full h-full absolute inset-y-0 left-0 object-cover" />
+            <picture id="doorLeft" class="absolute inset-y-0 left-0 w-full h-full object-cover">
+                <source srcset="/img/Door_Left.webp" type="image/webp">
+                <source srcset="/img/Door_Left.png" type="image/png">
+                <img src="/img/Door_Left.png" alt="Door on left side of bridge" class="w-full h-full">
+            </picture>
+            <picture id="doorRight" class="absolute inset-y-0 left-0 w-full h-full object-cover">
+                <source srcset="/img/Door_Right.webp" type="image/webp">
+                <source srcset="/img/Door_Right.png" type="image/png">
+                <img src="/img/Door_Right.png" alt="Door on left side of bridge" class="w-full h-full">
+            </picture>
         </div>
     </div>
     <script type="module" src="/main.js"></script>
