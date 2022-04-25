@@ -9,3 +9,13 @@
     width: 100%;
   }
 }
+
+@layer components {
+  .no-webp .helm-background {
+    background-image: url("/img/BG.png");
+  }
+
+  .webp .helm-background {
+    background-image: url("/img/BG.webp");
+  }
+}
