@@ -13,11 +13,24 @@
   </head>
   <body class="relative bg-black">
     <div class="hidden h-full w-full" id="animationWrapper">
+      <div id="doors" class="pointer-events-none h-full w-full overflow-hidden relative z-10">
+        <picture id="doorLeft" class="absolute inset-y-0 left-0 h-full w-full object-cover">
+          <source srcset="/img/Door_Left.webp" type="image/webp" />
+          <source srcset="/img/Door_Left.png" type="image/png" />
+          <img src="/img/Door_Left.png" alt="Door on left side of bridge" class="h-full w-full" />
+        </picture>
+        <picture id="doorRight" class="absolute inset-y-0 left-0 h-full w-full object-cover">
+          <source srcset="/img/Door_Right.webp" type="image/webp" />
+          <source srcset="/img/Door_Right.png" type="image/png" />
+          <img src="/img/Door_Right.png" alt="Door on left side of bridge" class="h-full w-full" />
+        </picture>
+      </div>
+      </div>
       <div
         id="bridge"
-        class="helm-background relative flex opacity-0 h-full w-full items-center justify-center overflow-hidden bg-cover bg-center"
+        class="helm-background fixed inset-0 opacity-0 flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center"
       >
-        <div class="-mt-[6%] ml-1 h-auto w-5/12" id="hologram">
+        <div class="-mt-[6%] ml-1 h-auto w-5/12 opacity-0 overflow-hidden" id="hologram">
           <img
             src="/img/Hologram.png"
             alt="Hologram"
@@ -41,36 +54,7 @@
           alt="Captain on right side of helm"
         />
       </div>
-      <div
-        id="doors"
-        class="pointer-events-none absolute inset-0 h-full w-full overflow-hidden"
-      >
-        <picture
-          id="doorLeft"
-          class="absolute inset-y-0 left-0 h-full w-full object-cover"
-        >
-          <source srcset="/img/Door_Left.webp" type="image/webp" />
-          <source srcset="/img/Door_Left.png" type="image/png" />
-          <img
-            src="/img/Door_Left.png"
-            alt="Door on left side of bridge"
-            class="h-full w-full"
-          />
-        </picture>
-        <picture
-          id="doorRight"
-          class="absolute inset-y-0 left-0 h-full w-full object-cover"
-        >
-          <source srcset="/img/Door_Right.webp" type="image/webp" />
-          <source srcset="/img/Door_Right.png" type="image/png" />
-          <img
-            src="/img/Door_Right.png"
-            alt="Door on left side of bridge"
-            class="h-full w-full"
-          />
-        </picture>
-      </div>
-    </div>
+      
     <script type="module" src="/main.js"></script>
   </body>
 </html>

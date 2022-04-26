@@ -1,32 +1,50 @@
 import './style.css';
 import './modernizr';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import imagesloaded from 'imagesloaded';
-
-function doors() {
-  gsap.to('#doorLeft', { x: '-100%', duration: 30, ease: 'elastic' });
-  gsap.to('#doorRight', { x: '100%', duration: 30, ease: 'elastic' });
-  gsap.to('#bridge', { opacity: 1, delay: 0.1 });
-}
-
-function captains() {
-  const offsetX = 50;
-  const offsetY = 25;
-  gsap.fromTo(
-    '#captainLeft',
-    { x: offsetX, y: -offsetY },
-    { x: 0, y: 0, duration: 6, delay: 0.5, ease: 'expo' }
-  );
-  gsap.fromTo(
-    '#captainRight',
-    { x: -offsetX, y: -offsetY },
-    { x: 0, y: 0, duration: 6, delay: 0.5, ease: 'expo' }
-  );
-}
+gsap.registerPlugin(ScrollTrigger);
 
 function runAnimation() {
-  doors();
-  captains();
+  const offsetX = 50;
+  const offsetY = 25;
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: '#doors',
+        start: 'top top',
+        end: '+=4000',
+        scrub: true,
+        pin: true,
+      },
+    })
+    .to('#doorLeft', { x: '-50%' }, 'doorMovement')
+    .to('#doorRight', { x: '50%' }, 'doorMovement')
+    .to('#bridge', { opacity: 1 }, '<doorMovement')
+    .fromTo(
+      '#captainLeft',
+      { x: offsetX, y: -offsetY },
+      { x: 0, y: 0, duration: 1, delay: 0.5, ease: 'expo' },
+      'doorMovement-=50%'
+    )
+    .fromTo(
+      '#captainRight',
+      { x: -offsetX, y: -offsetY },
+      { x: 0, y: 0, duration: 1, delay: 0.5, ease: 'expo' },
+      'doorMovement-=50%'
+    )
+    .fromTo(
+      '#hologram',
+      {
+        'clip-path': 'inset(100% 0% 0% 0%)',
+        opacity: 0,
+      },
+      {
+        'clip-path': 'inset(0% 0% 0% 0%)',
+        opacity: 1,
+      },
+      'doorMovement+=40%'
+    );
 }
 
 imagesloaded('#animationWrapper', () => {
