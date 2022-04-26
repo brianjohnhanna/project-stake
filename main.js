@@ -44,7 +44,8 @@ function runAnimation() {
         opacity: 1,
       },
       'doorMovement+=40%'
-    );
+    )
+    .to('#twitterIcon', { opacity: 1, duration: 10 }, '<doorMovement+=50%');
 }
 
 imagesloaded('#animationWrapper', () => {
