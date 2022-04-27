@@ -13,7 +13,7 @@ function runAnimation() {
       scrollTrigger: {
         trigger: '#doors',
         start: 'top top',
-        end: '+=4000',
+        end: '+=5000',
         scrub: true,
         pin: true,
       },
@@ -45,7 +45,11 @@ function runAnimation() {
       },
       'doorMovement+=40%'
     )
-    .to('#twitterIcon', { opacity: 1, duration: 10 }, '<doorMovement+=50%');
+    .to(
+      '#twitterIcon',
+      { display: 'block', opacity: 1, delay: 0.25 },
+      '<doorMovement+=100%'
+    );
 }
 
 imagesloaded('#animationWrapper', () => {
